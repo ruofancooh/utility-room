@@ -7,7 +7,7 @@ def encode_img(input_paths):
     for path in input_paths:
 
         file_type = path.split('.')[-1]
-        output_path = f'{path}.txt'
+        output_path = f'{path}-base64.txt'
 
         with open(path, 'rb') as f:
             img_data = f.read()
@@ -15,6 +15,8 @@ def encode_img(input_paths):
             base64_str = str(base64_data, 'utf-8')
 
         with open(output_path, 'w') as f:
+            if file_type == 'svg':
+                file_type = 'svg+xml'
             f.write(f'data:image/{file_type};base64,{base64_str}')
 
 
