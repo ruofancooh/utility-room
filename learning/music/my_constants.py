@@ -1,17 +1,32 @@
-FREQ_A4 = 440
-NUM_PIANO_KEYS = 88
-NUM_OCTAVE_KEYS = 12
-CHURCH_MODES = (
-    "Ionian",
-    "Dorian",
-    "Phrygian",
-    "Lydian",
-    "Mixolydian",
-    "Aeolian",
-    "Iocrian",
+FREQ_A4: int = 440
+PIANO_KEYS_NUM: int = 88
+OCTAVE_KEYS_NUM: int = 12
+CHURCH_MODES: dict[str, str] = {
+    "Ionian": "Ionian",
+    "Dorian": "Dorian",
+    "Phrygian": "Phrygian",
+    "Lydian": "Lydian",
+    "Mixolydian": "Mixolydian",
+    "Aeolian": "Aeolian",
+    "Iocrian": "Iocrian",
+    "Major": "Ionian",
+    "Minor": "Aeolian",
+}
+OCTAVE_KEYS: tuple[str, ...] = (
+    "C",
+    "C#",
+    "D",
+    "D#",
+    "E",
+    "F",
+    "F#",
+    "G",
+    "G#",
+    "A",
+    "A#",
+    "B",
 )
-OCTAVE_KEYS = ("C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B")
-PIANO_KEYS = (
+PIANO_KEYS: tuple[str, ...] = (
     "A0",
     "A#0",
     "B0",
@@ -101,7 +116,7 @@ PIANO_KEYS = (
     "B7",
     "C8",
 )
-PIANOKEY_FREQ = {
+PIANOKEY_FREQ: dict[str, float] = {
     "A0": 27.5,
     "A#0": 29.13523509488062,
     "B0": 30.86770632850775,

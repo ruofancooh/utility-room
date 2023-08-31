@@ -1,6 +1,5 @@
 from printer import FreqPrinter
 
-
 while True:
     entered_value = input("输入音名：")
     if entered_value == "all":
