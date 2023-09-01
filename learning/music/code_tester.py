@@ -1,7 +1,13 @@
-from typing import Callable
+from typing import Any, Callable
 
 
-def t(fun: Callable) -> None:
+def ti(fun: Callable) -> None:
     print(fun.__doc__)
     while True:
-        print(fun(input()))
+        print(fun(*(input().split())))
+
+
+def ta(fun: Callable, args_set: set[Any]) -> None:
+    print(fun.__doc__)
+    for args in args_set:
+        print(fun(*args))

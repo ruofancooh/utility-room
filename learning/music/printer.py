@@ -1,4 +1,7 @@
-from my_constants import PIANOKEY_FREQ
+from pitch import Pitch
+from note import Note
+from scale import Scale
+from mode import Mode
 
 
 class FreqPrinter:
@@ -7,9 +10,10 @@ class FreqPrinter:
         """
         输出一个音名对应的频率
         """
-        f_pitch_name = PIANOKEY_FREQ.get(pitch_name)
-        if f_pitch_name is not None:
-            print(f"{pitch_name} 的频率是 {f_pitch_name:.3f}Hz")
+        note = Note(pitch_name)
+        pitch_name, pitch_freq = note.get()
+        if pitch_freq is not None:
+            print(f"{pitch_name} 的频率是 {pitch_freq:.3f}Hz")
         else:
             print("找不到音名，输入 all 以查看所有音名的频率")
 
@@ -18,5 +22,20 @@ class FreqPrinter:
         """
         输出所有音名对应的频率
         """
-        for pitch_name, freq in PIANOKEY_FREQ.items():
-            print(f"{pitch_name:>3} 的频率是 {freq:.3f}Hz")
+        notes = []
+        for pitch_name in Pitch.ALL_PITCHS:
+            notes.append(Note(pitch_name))
+        print(notes)
+        for note in notes:
+            pitch_name, pitch_freq = note.get()
+            print(f"{pitch_name:>3} 的频率是 {pitch_freq:.3f}Hz")
+
+
+class ScalePrinter:
+    @staticmethod
+    def print_scale(mode: Mode) -> None:
+        ...
+
+    @staticmethod
+    def print_all_mode_scale() -> None:
+        ...
